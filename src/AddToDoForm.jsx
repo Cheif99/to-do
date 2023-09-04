@@ -1,10 +1,11 @@
-import './List.css'
-import {useState} from 'react';
+import  './AddToDoForm.css'
+import { useState } from 'react';
 
 const AddToDoForm = (props) => {
     const [inputTitle, setInputTitle] = useState('');
     const [inputNote, setInputNote] = useState('');
     const [inputDate, setInputDate] = useState('');
+    const [valid, setValid] = useState(true)
 
     const titleChangeHandler = (event) => {
         setInputTitle(event.target.value)
@@ -21,38 +22,37 @@ const AddToDoForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
 
+        if(inputTitle.trim().length || inputNote.trim().length === 0) {
+            setValid(false)
+            return;
+        }
+
         const TodoForm = {
             title: inputTitle,
             note: inputNote,
             date: new Date(inputDate)
         }
-        
-props.onSaveList(TodoForm)
-setInputTitle('')
-setInputNote('')
-setInputDate('')
+
+        props.onSaveList(TodoForm)
+        setInputTitle('')
+        setInputNote('')
+        setInputDate('')
     }
-    return (  
-        <div className="list">
-            <form onSubmit={submitHandler}>
-                <div className="list-content">
-                    <label >Title</label>
-                    <input type="text" value={inputTitle} onChange={titleChangeHandler}/>
-                </div>
-                <div className="list--content">
-                    <label >Note</label>
-                    <input type="text" value={inputNote} onChange={noteChangeHandler}/>
-                </div>
-                <div className="list-date">
+    return (
+
+        <form onSubmit={submitHandler}>
+            <div className="list-content">
+                <label >Title</label>
+                <input type="text" value={inputTitle} onChange={titleChangeHandler} />
+                <label >Note</label>
+                <input type="text" value={inputNote} onChange={noteChangeHandler} />
                 <label >Date</label>
-                <input type="date" value={inputDate} onChange={dateChangeHandler}/>
-                </div>
-                <div className="list-btn">
-                    <button type='submit'>Add To-Do</button>
-                </div>
-            </form>
-        </div>
+                <input type="date" value={inputDate} onChange={dateChangeHandler} />
+                <button type='submit'>Add To-Do</button>
+            </div>
+        </form>
+
     );
 }
- 
+
 export default AddToDoForm;

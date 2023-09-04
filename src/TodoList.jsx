@@ -1,17 +1,16 @@
+import './TodoList.css'
 
 
 const TodoList = (props) => {
-
+  
     return (
-
-        <div className='todo-list'>
-            <ul>
+             <ul className='todo-list'>
                 {props.todoList.map(todo => (
-                    <li key={todo.title}>{todo.title}, {todo.note}</li>
+                    <li key={todo.title}>{todo.title}: {todo.note} </li>
                     
                 ))}
             </ul>
-        </div>
+        
     );
 }
 

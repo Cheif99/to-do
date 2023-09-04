@@ -1,39 +1,11 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  
-  font-weight: 400;
-
-  
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+*{
+  box-sizing: border-box;
 }
-
-
-
 body {
-  margin: 0;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-.app {
-  width: 500px;
-  height: 500px;
-  position: relative;
-  left: 400px;
-  border-radius: 5px;
-  top: 100px;
-  border: 2px solid blue;
+  margin : 10;
   
 }
 
-.todo-list {
-  background-color: red;
-  margin-top: 200px;
-
+html {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
