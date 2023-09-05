@@ -1,6 +1,9 @@
 import  './AddToDoForm.css'
 import { useState } from 'react';
 
+
+
+
 const AddToDoForm = (props) => {
     const [inputTitle, setInputTitle] = useState('');
     const [inputNote, setInputNote] = useState('');
@@ -8,22 +11,31 @@ const AddToDoForm = (props) => {
     const [valid, setValid] = useState(true)
 
     const titleChangeHandler = (event) => {
+        if(event.target.value.trim().length > 0) {
+            setValid(true)
+        }
         setInputTitle(event.target.value)
     };
 
     const noteChangeHandler = (event) => {
+        if(event.target.value.trim().length > 0) {
+            setValid(true)
+        }
         setInputNote(event.target.value)
     }
 
     const dateChangeHandler = (event) => {
+        if(event.target.value.trim().length > 0) {
+            setValid(true)
+        }
         setInputDate(event.target.value)
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
 
-        if(inputTitle.trim().length || inputNote.trim().length === 0) {
-            setValid(false)
+        if((inputTitle.trim().length=== 0) && (inputNote.trim().length=== 0)){
+            setValid(false);
             return;
         }
 
@@ -41,7 +53,7 @@ const AddToDoForm = (props) => {
     return (
 
         <form onSubmit={submitHandler}>
-            <div className="list-content">
+            <div className={`list-content ${!valid ? 'invalid' : ''}`}>
                 <label >Title</label>
                 <input type="text" value={inputTitle} onChange={titleChangeHandler} />
                 <label >Note</label>

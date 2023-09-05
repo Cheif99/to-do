@@ -59,4 +59,11 @@
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
   }
   
-  
+  .list-content.invalid label {
+      color:red
+  }
+
+  .list-content.invalid input:focus{
+    border-color: black;
+    background: rgb(143, 92, 87);
+  }
