@@ -1,5 +1,6 @@
 import  './AddToDoForm.css'
 import { useState } from 'react';
+import Button from './UI/Button'
 
 
 
@@ -34,7 +35,7 @@ const AddToDoForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        if((inputTitle.trim().length=== 0) && (inputNote.trim().length=== 0)){
+        if((inputTitle.trim().length=== 0) || (inputNote.trim().length=== 0)){
             setValid(false);
             return;
         }
@@ -60,7 +61,7 @@ const AddToDoForm = (props) => {
                 <input type="text" value={inputNote} onChange={noteChangeHandler} />
                 <label >Date</label>
                 <input type="date" value={inputDate} onChange={dateChangeHandler} />
-                <button type='submit'>Add To-Do</button>
+                <Button type='submit'>Add To-Do</Button>
             </div>
         </form>
 
