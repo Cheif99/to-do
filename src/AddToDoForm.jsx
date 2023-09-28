@@ -43,8 +43,11 @@ const AddToDoForm = (props) => {
         const TodoForm = {
             title: inputTitle,
             note: inputNote,
-            date: new Date(inputDate)
+            date: new Date(inputDate),
+            id: Math.random().toString()
         }
+
+        
 
         props.onSaveList(TodoForm)
         setInputTitle('')

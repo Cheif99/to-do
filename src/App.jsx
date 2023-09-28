@@ -12,12 +12,19 @@ setTodoItems(list => [...list, todoItem])
 console.log('done')
 console.log(todoItem)
 }
-  
+
+
+const deleteHandler = (id) => {
+const newList = todoItems.filter(todo => todo.id !== id);
+setTodoItems(newList)
+}
+
+
 return (
     <div className="app">
   <Navbar />
   <AddToDoForm onSaveList = {addTodoListHandler}/>
-  <TodoList todoList={todoItems}/>
+  <TodoList todoList={todoItems} onDelete={deleteHandler}/>
   </div>
   )
 }
